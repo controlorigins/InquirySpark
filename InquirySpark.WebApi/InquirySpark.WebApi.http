@@ -1,0 +1,6 @@
+@InquirySpark.WebApi_HostAddress = http://localhost:5195
+
+GET {{InquirySpark.WebApi_HostAddress}}/company/
+Accept: application/json
+
+###
