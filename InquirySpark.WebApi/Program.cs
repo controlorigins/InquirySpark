@@ -2,6 +2,7 @@ using InquirySpark.Common.SDK.Services;
 using InquirySpark.Repository.Database;
 using InquirySpark.Repository.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,8 +17,22 @@ builder.Services.AddDbContext<InquirySparkContext>(options =>
 builder.Services.AddTransient<ISurveyService, SurveyService>();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "InquirySpark API",
+        Version = "v1"
+    });
 
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, "InquirySpark.Common.xml");
+    c.IncludeXmlComments(xmlPath);
+    xmlPath = Path.Combine(AppContext.BaseDirectory, "InquirySpark.Repository.xml");
+    c.IncludeXmlComments(xmlPath);
+    xmlPath = Path.Combine(AppContext.BaseDirectory, "InquirySpark.WebApi.xml");
+    c.IncludeXmlComments(xmlPath);
+    c.EnableAnnotations();
+}); 
 
 var app = builder.Build();
 
@@ -25,7 +40,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "InquirySpark API");
+    });
 }
 
 app.UseHttpsRedirection();

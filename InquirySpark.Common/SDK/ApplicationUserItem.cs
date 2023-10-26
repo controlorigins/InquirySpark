@@ -16,8 +16,8 @@ public class ApplicationUserItem
     public string SupervisorAccountNM { get; set; }
     public DateTime LastLoginDT { get; set; }
     public string LastLoginLocation { get; set; }
-    public List<SurveyResponseItem> SurveyResponseList { get; set; } = new List<SurveyResponseItem>();
-    public List<ApplicationUserRoleItem> ApplicationUserRoleList { get; set; } = new List<ApplicationUserRoleItem>();
+    public List<SurveyResponseItem> SurveyResponseList { get; set; } = [];
+    public List<ApplicationUserRoleItem> ApplicationUserRoleList { get; set; } = [];
     public int SurveyResponseCount { get; set; }
     public int ApplicationUserRoleCount { get; set; }
     public DateTime ModifiedDT { get; set; }
@@ -26,8 +26,8 @@ public class ApplicationUserItem
     public int MessageCount { get; set; }
     public int UserRoleID { get; set; }
     public string UserRoleName { get; set; }
-    public List<SiteMessageItem> Messages { get; set; } = new List<SiteMessageItem>();
-    public List<UserAppPropertyItem> Properties { get; set; } = new List<UserAppPropertyItem>();
+    public List<SiteMessageItem> Messages { get; set; } = [];
+    public List<UserAppPropertyItem> Properties { get; set; } = [];
     public string DisplayName { get; set; }
     public Guid UserKey { get; set; }
     public string VerifyCode { get; set; }

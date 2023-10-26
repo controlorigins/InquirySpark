@@ -12,12 +12,12 @@ public sealed class StrongDictionary<TKey, TValue>
     /// <summary>
     /// The dictionary
     /// </summary>
-    private Dictionary<TKey, TValue> _Dictionary;
+    private readonly Dictionary<TKey, TValue> _Dictionary;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="StrongDictionary{TKey, TValue}"/> class.
     /// </summary>
-    public StrongDictionary() { _Dictionary = new Dictionary<TKey, TValue>(); }
+    public StrongDictionary() { _Dictionary = []; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="StrongDictionary{TKey, TValue}"/> class.
@@ -80,7 +80,7 @@ public sealed class StrongDictionary<TKey, TValue>
     /// <returns>List&lt;System.String&gt;.</returns>
     public List<string> GetList()
     {
-        List<string> list = new();
+        List<string> list = [];
         foreach (var item in _Dictionary)
         {
             list.Add($"{item.Key} - {item.Value}");

@@ -10,7 +10,7 @@ public class ImportSurveyResponse
     public string AssignmentDT { get; set; }
     public string CompletionStatus { get; set; }
     public SurveyResponseItem SurveyResponse { get; set; } = new SurveyResponseItem() { SurveyResponseID = -1 };
-    public List<ImportSurveyResponseAnswer> Answers { get; set; } = new List<ImportSurveyResponseAnswer>();
+    public List<ImportSurveyResponseAnswer> Answers { get; set; } = [];
     public string Process { get; set; }
     public string VersionID { get; set; }
 }

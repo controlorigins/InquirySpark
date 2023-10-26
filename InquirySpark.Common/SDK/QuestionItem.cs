@@ -23,11 +23,11 @@ public class QuestionItem
     // 
     // Possible Answers for this Question
     // 
-    public List<QuestionAnswerItem> QuestionAnswerItemList { get; set; } = new List<QuestionAnswerItem>();
+    public List<QuestionAnswerItem> QuestionAnswerItemList { get; set; } = [];
     // 
     // Only Implemented when Question is in a QuestionGroup or SurveyQuestionList
     public QuestionGroupMemberItem QuestionGroupMember { get; set; } = new QuestionGroupMemberItem();
     // Only Implemented when Question is in a SurveyResponse.Survey.Question 
-    public List<SurveyResponseAnswerItem> SurveyResponseAnswerItemList { get; set; } = new List<SurveyResponseAnswerItem>();
+    public List<SurveyResponseAnswerItem> SurveyResponseAnswerItemList { get; set; } = [];
     public int SurveyDisplayOrder { get; set; }
 }

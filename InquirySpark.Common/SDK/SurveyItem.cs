@@ -15,11 +15,11 @@ public class SurveyItem
     public DateTime? StartDT { get; set; }
     public int ModifiedID { get; set; }
     public int? ParentSurveyID { get; set; }
-    public List<QuestionGroupItem> QuestionGroupList { get; set; } = new List<QuestionGroupItem>();
-    public List<QuestionItem> QuestionList { get; set; } = new List<QuestionItem>();
-    public List<SurveyEmailTemplateItem> EmailTemplateList { get; set; } = new List<SurveyEmailTemplateItem>();
-    public List<SurveyReviewStatusItem> ReviewStatusList { get; set; } = new List<SurveyReviewStatusItem>();
-    public List<SurveyStatusItem> StatusList { get; set; } = new List<SurveyStatusItem>();
+    public List<QuestionGroupItem> QuestionGroupList { get; set; } = [];
+    public List<QuestionItem> QuestionList { get; set; } = [];
+    public List<SurveyEmailTemplateItem> EmailTemplateList { get; set; } = [];
+    public List<SurveyReviewStatusItem> ReviewStatusList { get; set; } = [];
+    public List<SurveyStatusItem> StatusList { get; set; } = [];
     public SurveyTypeItem SurveyType { get; set; } = new SurveyTypeItem();
     public int ApplicationCount { get; set; }
     public int SurveyResponseCount { get; set; }

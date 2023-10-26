@@ -8,5 +8,5 @@ public class ApplicationSurveyItem
     public SurveyItem Survey { get; set; } = new SurveyItem();
     public int ApplicationID { get; set; }
     public int DefaultRoleID { get; set; }
-    public List<SurveyResponseItem> SurveyResponseList { get; set; } = new List<SurveyResponseItem>();
+    public List<SurveyResponseItem> SurveyResponseList { get; set; } = [];
 }

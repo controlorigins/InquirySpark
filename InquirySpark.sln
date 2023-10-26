@@ -5,9 +5,11 @@ VisualStudioVersion = 17.8.34212.112
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InquirySpark.Repository", "InquirySpark.Repository\InquirySpark.Repository.csproj", "{D2342D36-FED4-430E-941D-D19289F02850}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InquirySpark.Common", "InquirySpark.Common\InquirySpark.Common.csproj", "{AE1EB409-F98C-461A-8561-E85A4528E0D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InquirySpark.Common", "InquirySpark.Common\InquirySpark.Common.csproj", "{AE1EB409-F98C-461A-8561-E85A4528E0D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InquirySpark.WebApi", "InquirySpark.WebApi\InquirySpark.WebApi.csproj", "{3673D3B2-BA52-41A3-AB4D-7DC50EBCEB52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InquirySpark.WebApi", "InquirySpark.WebApi\InquirySpark.WebApi.csproj", "{3673D3B2-BA52-41A3-AB4D-7DC50EBCEB52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InquirySpark.Common.Tests", "InquirySpark.Common.Tests\InquirySpark.Common.Tests.csproj", "{9E18665A-83ED-4A9E-A2E3-0BF6A6E0E677}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{3673D3B2-BA52-41A3-AB4D-7DC50EBCEB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3673D3B2-BA52-41A3-AB4D-7DC50EBCEB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3673D3B2-BA52-41A3-AB4D-7DC50EBCEB52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E18665A-83ED-4A9E-A2E3-0BF6A6E0E677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E18665A-83ED-4A9E-A2E3-0BF6A6E0E677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E18665A-83ED-4A9E-A2E3-0BF6A6E0E677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E18665A-83ED-4A9E-A2E3-0BF6A6E0E677}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -26,6 +26,6 @@ public class CompanyItem
     public int ProjectCount { get; set; }
     public int UserCount { get; set; }
     public int SurveyResponseCount { get; set; }
-    public List<ApplicationUserItem> UserList { get; set; } = new List<ApplicationUserItem>();
-    public List<ApplicationItem> ProjectList { get; set; } = new List<ApplicationItem>();
+    public List<ApplicationUserItem> UserList { get; set; } = [];
+    public List<ApplicationItem> ProjectList { get; set; } = [];
 }

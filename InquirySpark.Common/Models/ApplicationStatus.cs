@@ -1,10 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Reflection;
 
 namespace InquirySpark.Common.Models;
-
-[SuppressMessage("Spellchecker", "CRRSP06:A misspelled word has been found", Justification = "<Pending>")]
 
 /// <summary>
 /// ApplicationStatus
@@ -15,8 +12,8 @@ public sealed class ApplicationStatus
     {
         BuildDate = GetBuildDate(assembly);
         BuildVersion = new BuildVersion(assembly?.GetName().Version);
-        Tests = tests ?? new Dictionary<string, string>();
-        Messages = messages ?? new List<string>();
+        Tests = tests ?? [];
+        Messages = messages ?? [];
         Status = status;
     }
 
@@ -48,11 +45,11 @@ public sealed class ApplicationStatus
     /// <summary>
     /// Features
     /// </summary>
-    public Dictionary<string, string> Features { get; } = new Dictionary<string, string>();
+    public Dictionary<string, string> Features { get; } = [];
     /// <summary>
     /// Messages
     /// </summary>
-    public List<string> Messages { get; } = new List<string>();
+    public List<string> Messages { get; } = [];
     /// <summary>
     /// Region
     /// </summary>
@@ -64,5 +61,5 @@ public sealed class ApplicationStatus
     /// <summary>
     /// Tests 
     /// </summary>
-    public Dictionary<string, string> Tests { get; } = new Dictionary<string, string>();
+    public Dictionary<string, string> Tests { get; } = [];
 }

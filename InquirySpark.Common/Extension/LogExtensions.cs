@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 
 namespace InquirySpark.Common.Extension;
 
+
 /// <summary>
 /// LogExtensions Static Class
 /// </summary>
@@ -31,7 +32,7 @@ public static class LogExtensions
         }
         catch
         {
-            return objectToSerialize.GetTextObjectString();
+            return objectToSerialize?.GetTextObjectString() ?? string.Empty;
         }
     }
 
@@ -94,7 +95,7 @@ public static class LogExtensions
 
         Type type = record.GetType();
         PropertyInfo[] properties = type.GetProperties();
-        Dictionary<string, object> dictionary = new();
+        Dictionary<string, object> dictionary = new Dictionary<string, object>();
         foreach (PropertyInfo propertyInfo in properties)
         {
             if (propertyInfo != null)
@@ -102,7 +103,7 @@ public static class LogExtensions
                 if (IsSimpleType(propertyInfo.PropertyType))
                 {
                     object value = propertyInfo.GetValue(record, new object[] { });
-                    dictionary.Add(propertyInfo.Name, value);
+                    dictionary.Add(propertyInfo.Name, value ?? string.Empty);
                 }
             }
         }

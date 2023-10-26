@@ -54,7 +54,7 @@ namespace InquirySpark.Repository.Services
                 SurveyNM = survey.SurveyNm,
                 SurveyDS = survey.SurveyDs ?? string.Empty,
             };
-            
+
         }
 
         public static CompanyItem[] Create(Company[] company)
@@ -134,6 +134,18 @@ namespace InquirySpark.Repository.Services
             }
             return applicationUserItems;
 
+        }
+
+        public static ApplicationTypeItem Create(LuApplicationType s)
+        {
+            return new ApplicationTypeItem()
+            {
+                ApplicationTypeID = s.ApplicationTypeId,
+                ApplicationTypeNM = s.ApplicationTypeNm,
+                ApplicationTypeDS = s.ApplicationTypeDs ?? string.Empty,
+                ModifiedID = s.ModifiedId,
+                ModifiedDT = s.ModifiedDt,
+            };
         }
     }
 }

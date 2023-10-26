@@ -19,6 +19,6 @@ public class SurveyResponseAnswerItem
     public string QuestionAnswerNM { get; set; }
     public decimal QuestionValue { get; set; }
     public decimal QuestionAnswerValue { get; set; }
-    public List<string> ResponseList { get; set; } = new List<string>();
-    public List<SurveyResponseAnswerReviewItem> AnswerReviewList { get; set; } = new List<SurveyResponseAnswerReviewItem>();
+    public List<string> ResponseList { get; set; } = [];
+    public List<SurveyResponseAnswerReviewItem> AnswerReviewList { get; set; } = [];
 }

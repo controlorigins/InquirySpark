@@ -14,7 +14,7 @@ public class QuestionGroupItem
     public decimal? DependentMaxScore { get; set; }
     public decimal? DependentMinScore { get; set; }
     public int? DependentQuestionGroupID { get; set; }
-    public List<QuestionGroupMemberItem> QuestionMembership { get; set; } = new List<QuestionGroupMemberItem>();
+    public List<QuestionGroupMemberItem> QuestionMembership { get; set; } = [];
     public int ModifiedID { get; set; }
     public bool MarkedForDeletion { get; set; } = false;
 }
