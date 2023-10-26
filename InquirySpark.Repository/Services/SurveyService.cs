@@ -4,6 +4,7 @@ using InquirySpark.Common.SDK.Services;
 using InquirySpark.Repository.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel.Design;
 
 namespace InquirySpark.Repository.Services;
 
@@ -105,7 +106,6 @@ public class SurveyService : ISurveyService
             .Select(s => SurveyServices_Mappers.Create(s))
             .FirstOrDefaultAsync();
         });
-
     }
 
     public async Task<BaseResponseCollection<CompanyItem>> GetCompanyCollection()
@@ -120,29 +120,59 @@ public class SurveyService : ISurveyService
         });
     }
 
-    public Task<BaseResponse<SurveyItem>> GetSurveyBySurveyId(int surveyId)
+    public async Task<BaseResponse<SurveyItem>> GetSurveyBySurveyId(int surveyId)
     {
-        throw new NotImplementedException();
+        return await DbContextHelper.ExecuteAsync<SurveyItem>(async () =>
+        {
+            return await _coSurveyContext
+            .Surveys.Where(w => w.SurveyId == surveyId)
+            .Select(s => SurveyServices_Mappers.Create(s))
+            .FirstOrDefaultAsync();
+        });
     }
 
-    public Task<BaseResponseCollection<SurveyItem>> GetSurveyCollection()
+    public async Task<BaseResponseCollection<SurveyItem>> GetSurveyCollection()
     {
-        throw new NotImplementedException();
+        return await DbContextHelper.ExecuteCollectionAsync<SurveyItem>(async () =>
+        {
+            return await _coSurveyContext
+            .Surveys
+            .Select(s => SurveyServices_Mappers.Create(s))
+            .ToListAsync();
+        });
     }
 
-    public Task<BaseResponse<SurveyTypeItem>> GetSurveyType(int surveyTypeId)
+    public async Task<BaseResponse<SurveyTypeItem>> GetSurveyType(int surveyTypeId)
     {
-        throw new NotImplementedException();
+        return await DbContextHelper.ExecuteAsync<SurveyTypeItem>(async () =>
+        {
+            return await _coSurveyContext
+            .LuSurveyTypes.Where(w => w.SurveyTypeId == surveyTypeId)
+            .Select(s => SurveyServices_Mappers.Create(s))
+            .FirstOrDefaultAsync();
+        });
     }
 
-    public Task<BaseResponseCollection<SurveyTypeItem>> GetSurveyTypeCollection(int surveyTypeId)
+    public async Task<BaseResponseCollection<SurveyTypeItem>> GetSurveyTypeCollection(int surveyTypeId)
     {
-        throw new NotImplementedException();
+        return await DbContextHelper.ExecuteCollectionAsync<SurveyTypeItem>(async () =>
+        {
+            return await _coSurveyContext
+            .LuSurveyTypes
+            .Select(s => SurveyServices_Mappers.Create(s))
+            .ToListAsync();
+        });
     }
 
-    public Task<BaseResponse<ApplicationUserItem>> GetUserById(int Id)
+    public async Task<BaseResponse<ApplicationUserItem>> GetUserById(int Id)
     {
-        throw new NotImplementedException();
+        return await DbContextHelper.ExecuteAsync<ApplicationUserItem>(async () =>
+        {
+            return await _coSurveyContext
+            .ApplicationUsers.Where(w => w.ApplicationUserId == Id)
+            .Select(s => SurveyServices_Mappers.Create(s))
+            .FirstOrDefaultAsync();
+        });
     }
 
     public Task<BaseResponseCollection<ApplicationUserItem>> GetUserCollection()

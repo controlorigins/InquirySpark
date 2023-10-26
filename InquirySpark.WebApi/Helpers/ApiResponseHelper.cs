@@ -26,7 +26,7 @@ public static class ApiResponseHelper
                 if (result.Data == null)
                     return new NoContentResult();
 
-               return new OkObjectResult(result.Data);
+                return new OkObjectResult(result.Data);
             }
             else
             {

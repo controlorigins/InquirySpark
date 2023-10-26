@@ -32,7 +32,7 @@ builder.Services.AddSwaggerGen(c =>
     xmlPath = Path.Combine(AppContext.BaseDirectory, "InquirySpark.WebApi.xml");
     c.IncludeXmlComments(xmlPath);
     c.EnableAnnotations();
-}); 
+});
 
 var app = builder.Build();
 

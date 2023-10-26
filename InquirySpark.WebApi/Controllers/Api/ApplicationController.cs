@@ -50,5 +50,4 @@ public class ApplicationController : SurveyApiController
     {
         return await ApiResponseHelper.ExecuteAsync(() => _service.GetApplicationByApplicationID(id), _logger);
     }
-
 }
