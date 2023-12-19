@@ -9,16 +9,13 @@ namespace InquirySpark.WebApi.Controllers.Api;
 /// <summary>
 /// CompanyController
 /// </summary>
-public class CompanyController : SurveyApiController
+/// <remarks>
+/// CompanyController constructor
+/// </remarks>
+/// <param name="service"></param>
+/// <param name="logger"></param>
+public class CompanyController(ISurveyService service, ILogger<CompanyController> logger) : SurveyApiController(service, logger)
 {
-    /// <summary>
-    /// CompanyController constructor
-    /// </summary>
-    /// <param name="service"></param>
-    /// <param name="logger"></param>
-    public CompanyController(ISurveyService service, ILogger<CompanyController> logger) : base(service, logger)
-    {
-    }
 
     /// <summary>
     /// Get A collection of all Companies

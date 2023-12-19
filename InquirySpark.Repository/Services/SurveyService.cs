@@ -4,28 +4,21 @@ using InquirySpark.Common.SDK.Services;
 using InquirySpark.Repository.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System.ComponentModel.Design;
 
 namespace InquirySpark.Repository.Services;
 
 /// <summary>
 /// Survey Service
 /// </summary>
-public class SurveyService : ISurveyService
+/// <remarks>
+/// Survey Service Constructor
+/// </remarks>
+/// <param name="coSurveyContext"></param>
+/// <param name="logger"></param>
+public class SurveyService(InquirySparkContext coSurveyContext, ILogger<SurveyService> logger) : ISurveyService
 {
-    private readonly InquirySparkContext _coSurveyContext;
-    private readonly ILogger<SurveyService> _logger;
-
-    /// <summary>
-    /// Survey Service Constructor
-    /// </summary>
-    /// <param name="coSurveyContext"></param>
-    /// <param name="logger"></param>
-    public SurveyService(InquirySparkContext coSurveyContext, ILogger<SurveyService> logger)
-    {
-        _coSurveyContext = coSurveyContext;
-        _logger = logger;
-    }
+    private readonly InquirySparkContext _coSurveyContext = coSurveyContext;
+    private readonly ILogger<SurveyService> _logger = logger;
 
     /// <summary>
     /// GetApplicationByApplicationID
@@ -34,6 +27,7 @@ public class SurveyService : ISurveyService
     /// <returns></returns>
     public async Task<BaseResponse<ApplicationItem>> GetApplicationByApplicationID(int ApplicationId)
     {
+        _logger.LogInformation("GetApplicationByApplicationID");
         return await DbContextHelper.ExecuteAsync(async () =>
         {
             return await _coSurveyContext
@@ -42,12 +36,20 @@ public class SurveyService : ISurveyService
                 .Include(i => i.ApplicationType)
                 .Include(i => i.Company)
                 .Include(i => i.SurveyResponses)
-                .Include(i => i.ApplicationSurveys)
+                .Include(i => i.ApplicationSurveys).ThenInclude(i => i.Survey)
+                                                   .ThenInclude(i => i.QuestionGroups)
+                                                   .ThenInclude(i => i.QuestionGroupMembers)
+                                                   .ThenInclude(i => i.Question)
+                                                   .ThenInclude(i=> i.QuestionAnswers)
                 .Select(s => SurveyServices_Mappers.Create(s))
                 .FirstOrDefaultAsync();
         });
     }
 
+    /// <summary>
+    /// Get Application By Application Collection
+    /// </summary>
+    /// <returns></returns>
     public async Task<BaseResponseCollection<ApplicationItem>> GetApplicationItemCollection()
     {
         return await DbContextHelper.ExecuteCollectionAsync<ApplicationItem>(async () =>
@@ -60,6 +62,11 @@ public class SurveyService : ISurveyService
         });
     }
 
+    /// <summary>
+    /// Get Application By Application Type 
+    /// </summary>
+    /// <param name="applicationType"></param>
+    /// <returns></returns>
     public async Task<BaseResponse<ApplicationTypeItem>> GetApplicationTypeByApplicationTypeID(ApplicationTypeItem applicationType)
     {
         return await DbContextHelper.ExecuteAsync(async () =>
@@ -72,6 +79,11 @@ public class SurveyService : ISurveyService
         });
     }
 
+    /// <summary>
+    /// Get Application By Application Type ID
+    /// </summary>
+    /// <param name="applicationTypeId"></param>
+    /// <returns></returns>
     public async Task<BaseResponse<ApplicationTypeItem>> GetApplicationTypeByApplicationTypeID(int applicationTypeId)
     {
         return await DbContextHelper.ExecuteAsync(async () =>
@@ -84,6 +96,10 @@ public class SurveyService : ISurveyService
         });
     }
 
+    /// <summary>
+    /// Get Application Type Collection
+    /// </summary>
+    /// <returns></returns>
     public async Task<BaseResponseCollection<ApplicationTypeItem>> GetApplicationTypeCollection()
     {
         return await DbContextHelper.ExecuteCollectionAsync<ApplicationTypeItem>(async () =>
@@ -95,6 +111,11 @@ public class SurveyService : ISurveyService
         });
     }
 
+    /// <summary>
+    /// Get Company By CompanyId
+    /// </summary>
+    /// <param name="CompanyId"></param>
+    /// <returns></returns>
     public async Task<BaseResponse<CompanyItem>> GetCompanyByCompanyId(int CompanyId)
     {
         return await DbContextHelper.ExecuteAsync(async () =>
@@ -108,6 +129,10 @@ public class SurveyService : ISurveyService
         });
     }
 
+    /// <summary>
+    /// Get Company Collection
+    /// </summary>
+    /// <returns></returns>
     public async Task<BaseResponseCollection<CompanyItem>> GetCompanyCollection()
     {
         return await DbContextHelper.ExecuteCollectionAsync<CompanyItem>(async () =>
@@ -120,17 +145,27 @@ public class SurveyService : ISurveyService
         });
     }
 
+    /// <summary>
+    /// Get Survey By SurveyId
+    /// </summary>
+    /// <param name="surveyId"></param>
+    /// <returns></returns>
     public async Task<BaseResponse<SurveyItem>> GetSurveyBySurveyId(int surveyId)
     {
         return await DbContextHelper.ExecuteAsync<SurveyItem>(async () =>
         {
             return await _coSurveyContext
             .Surveys.Where(w => w.SurveyId == surveyId)
+            .Include(i => i.QuestionGroups).ThenInclude(i => i.QuestionGroupMembers).ThenInclude(i => i.Question)
             .Select(s => SurveyServices_Mappers.Create(s))
             .FirstOrDefaultAsync();
         });
     }
 
+    /// <summary>
+    /// Get survey collection
+    /// </summary>
+    /// <returns></returns>
     public async Task<BaseResponseCollection<SurveyItem>> GetSurveyCollection()
     {
         return await DbContextHelper.ExecuteCollectionAsync<SurveyItem>(async () =>
@@ -142,6 +177,11 @@ public class SurveyService : ISurveyService
         });
     }
 
+    /// <summary>
+    /// Get survey type by survey type id
+    /// </summary>
+    /// <param name="surveyTypeId"></param>
+    /// <returns></returns>
     public async Task<BaseResponse<SurveyTypeItem>> GetSurveyType(int surveyTypeId)
     {
         return await DbContextHelper.ExecuteAsync<SurveyTypeItem>(async () =>
@@ -153,6 +193,11 @@ public class SurveyService : ISurveyService
         });
     }
 
+    /// <summary>
+    /// Get survey type collection
+    /// </summary>
+    /// <param name="surveyTypeId"></param>
+    /// <returns></returns>
     public async Task<BaseResponseCollection<SurveyTypeItem>> GetSurveyTypeCollection(int surveyTypeId)
     {
         return await DbContextHelper.ExecuteCollectionAsync<SurveyTypeItem>(async () =>
@@ -164,6 +209,11 @@ public class SurveyService : ISurveyService
         });
     }
 
+    /// <summary>
+    /// Get User By Id
+    /// </summary>
+    /// <param name="Id"></param>
+    /// <returns></returns>
     public async Task<BaseResponse<ApplicationUserItem>> GetUserById(int Id)
     {
         return await DbContextHelper.ExecuteAsync<ApplicationUserItem>(async () =>
@@ -175,26 +225,60 @@ public class SurveyService : ISurveyService
         });
     }
 
-    public Task<BaseResponseCollection<ApplicationUserItem>> GetUserCollection()
+    /// <summary>
+    /// Get User collection
+    /// </summary>
+    /// <returns></returns>
+    public async Task<BaseResponseCollection<ApplicationUserItem>> GetUserCollection()
     {
-        throw new NotImplementedException();
+        return await DbContextHelper.ExecuteCollectionAsync<ApplicationUserItem>(async () =>
+        {
+            return await _coSurveyContext
+            .ApplicationUsers
+            .Select(s => SurveyServices_Mappers.Create(s))
+            .ToListAsync();
+        });
     }
 
+    /// <summary>
+    /// Put Application
+    /// </summary>
+    /// <param name="applicationItem"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
     public Task<BaseResponse<ApplicationItem>> PutApplication(ApplicationItem applicationItem)
     {
         throw new NotImplementedException();
     }
 
+    /// <summary>
+    /// Put Company
+    /// </summary>
+    /// <param name="company"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
     public Task<BaseResponse<CompanyItem>> PutCompany(CompanyItem company)
     {
         throw new NotImplementedException();
     }
 
+    /// <summary>
+    /// Put Survey
+    /// </summary>
+    /// <param name="survey"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
     public Task<BaseResponse<SurveyItem>> PutSurvey(SurveyItem survey)
     {
         throw new NotImplementedException();
     }
 
+    /// <summary>
+    /// Put User 
+    /// </summary>
+    /// <param name="userItem"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
     public Task<BaseResponse<ApplicationUserItem>> PutUser(ApplicationUserItem userItem)
     {
         throw new NotImplementedException();
