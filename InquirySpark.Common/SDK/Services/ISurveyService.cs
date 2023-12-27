@@ -52,6 +52,17 @@ public interface ISurveyService
     /// </summary>
     /// <returns>CompanyItem[].</returns>
     Task<BaseResponseCollection<CompanyItem>> GetCompanyCollection();
+    /// <summary>
+    /// Gets the question by question identifier.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    Task<BaseResponse<QuestionItem>> GetQuestionByQuestionId(int id);
+    /// <summary>
+    ///  Gets the question collection.
+    /// </summary>
+    /// <returns></returns>
+    Task<BaseResponseCollection<QuestionItem>> GetQuestionCollection();
 
     /// <summary>
     /// Gets the survey by survey identifier.

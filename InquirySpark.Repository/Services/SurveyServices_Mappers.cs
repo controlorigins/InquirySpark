@@ -10,6 +10,31 @@ public static class SurveyServices_Mappers
 {
 
     /// <summary>
+    /// Mapper for Application View instance
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
+    public static ApplicationItem Create(VwApplication s)
+    {
+        return new ApplicationItem()
+        {
+            ApplicationID = s.ApplicationId,
+            ApplicationNM = s.ApplicationNm,
+            ApplicationCD = s.ApplicationCd,
+            ApplicationShortNM = s.ApplicationShortNm,
+            ApplicationTypeID = s.ApplicationTypeId ?? 0,
+            ApplicationDS = s.ApplicationDs ?? string.Empty,
+            MenuOrder = s.MenuOrder,
+            ApplicationTypeNM = s.ApplicationTypeNm ?? string.Empty,
+            SurveyCount = s.SurveyCount ?? 0,
+            SurveyResponseCount = s.SurveyResponseCount ?? 0,
+            UserCount = s.UserCount ?? 0,
+        };
+
+
+    }
+
+    /// <summary>
     /// Mapper for QuestionGroup
     /// </summary>
     /// <param name="questionGroups"></param>
@@ -99,9 +124,9 @@ public static class SurveyServices_Mappers
     /// </summary>
     /// <param name="question"></param>
     /// <returns></returns>
-    public static QuestionItem? Create(Question question)
+    public static QuestionItem Create(Question? question)
     {
-        if (question == null) return null;
+        if (question == null) return new();
         return new QuestionItem()
         {
             QuestionID = question.QuestionId,
@@ -112,7 +137,7 @@ public static class SurveyServices_Mappers
             ReviewRoleLevel = question.ReviewRoleLevel,
             SurveyTypeID = question.SurveyTypeId,
             UnitOfMeasureID = question.UnitOfMeasureId,
-            FileData = question.FileData,
+            FileData = question.FileData ?? [],
             ModifiedID = question.ModifiedId,
             Keywords = question.Keywords ?? string.Empty,
             QuestionAnswerItemList = Create(question.QuestionAnswers),
@@ -179,8 +204,28 @@ public static class SurveyServices_Mappers
             ModifiedDT = item.ModifiedDt,
             ApplicationTypeNM = item.ApplicationType?.ApplicationTypeNm ?? "unknown",
             ApplicationSurveyList = Create(item.ApplicationSurveys),
+            ApplicationUserList = Create(item.ApplicationUserRoles),
         };
     }
+
+    public static List<ApplicationUserRoleItem> Create(ICollection<ApplicationUserRole> applicationUserRoles)
+    {
+        return applicationUserRoles.Select(s => Create(s)).ToList();
+    }
+
+    public static ApplicationUserRoleItem Create(ApplicationUserRole s)
+    {
+        return new ApplicationUserRoleItem
+        {
+            ApplicationUserID = s.ApplicationUserId,
+            ApplicationID = s.ApplicationId,
+            RoleID = s.RoleId,
+            RoleNM = s.Role?.RoleNm ?? string.Empty,
+            RoleDS = s.Role?.RoleDs ?? string.Empty,
+            ModifiedID = s.ModifiedId
+        };
+    }
+
     /// <summary>
     /// Mapper for ApplicationSurvey
     /// </summary>
@@ -217,9 +262,9 @@ public static class SurveyServices_Mappers
     /// </summary>
     /// <param name="survey"></param>
     /// <returns></returns>
-    public static SurveyItem? Create(Survey? survey)
+    public static SurveyItem Create(Survey survey)
     {
-        if (survey == null) return null;
+        if (survey == null) return new();
         return new SurveyItem
         {
             SurveyID = survey.SurveyId,
@@ -436,6 +481,25 @@ public static class SurveyServices_Mappers
             ModifiedID = s.ModifiedId,
             ModifiedDT = s.ModifiedDt,
             UserRoleID = s.RoleId
+        };
+    }
+
+    public static QuestionItem Create(VwQuestionLibrary s)
+    {
+        return new QuestionItem()
+        {
+            QuestionID = s.QuestionId,
+            QuestionTypeID = s.QuestionTypeId??0,
+            CommentFL = s.CommentFl>0?true:false,
+            QuestionDS = s.QuestionDs ?? string.Empty,
+            QuestionValue = s.QuestionValue,
+            ReviewRoleLevel = s.ReviewRoleLevel,
+            SurveyTypeID = s.SurveyTypeId??0,
+            UnitOfMeasureID = s.UnitOfMeasureId??0,
+            FileData = s.FileData ?? [],
+            ModifiedID = s.ModifiedId,
+            Keywords = s.Keywords ?? string.Empty,
+           
         };
     }
 }

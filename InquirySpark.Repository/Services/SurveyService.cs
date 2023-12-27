@@ -17,8 +17,6 @@ namespace InquirySpark.Repository.Services;
 /// <param name="logger"></param>
 public class SurveyService(InquirySparkContext coSurveyContext, ILogger<SurveyService> logger) : ISurveyService
 {
-    private readonly InquirySparkContext _coSurveyContext = coSurveyContext;
-    private readonly ILogger<SurveyService> _logger = logger;
 
     /// <summary>
     /// GetApplicationByApplicationID
@@ -36,11 +34,12 @@ public class SurveyService(InquirySparkContext coSurveyContext, ILogger<SurveySe
                 .Include(i => i.ApplicationType)
                 .Include(i => i.Company)
                 .Include(i => i.SurveyResponses)
+                .Include(i=> i.ApplicationUserRoles).ThenInclude(i=>i.ApplicationUser)    
                 .Include(i => i.ApplicationSurveys).ThenInclude(i => i.Survey)
                                                    .ThenInclude(i => i.QuestionGroups)
                                                    .ThenInclude(i => i.QuestionGroupMembers)
                                                    .ThenInclude(i => i.Question)
-                                                   .ThenInclude(i=> i.QuestionAnswers)
+                                                   .ThenInclude(i => i.QuestionAnswers)
                 .Select(s => SurveyServices_Mappers.Create(s))
                 .FirstOrDefaultAsync();
         });
@@ -55,8 +54,7 @@ public class SurveyService(InquirySparkContext coSurveyContext, ILogger<SurveySe
         return await DbContextHelper.ExecuteCollectionAsync<ApplicationItem>(async () =>
         {
             return await _coSurveyContext
-            .Applications
-            .Include(i => i.ApplicationType)
+            .VwApplications
             .Select(s => SurveyServices_Mappers.Create(s))
             .ToListAsync();
         });
@@ -146,6 +144,39 @@ public class SurveyService(InquirySparkContext coSurveyContext, ILogger<SurveySe
     }
 
     /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public async Task<BaseResponse<QuestionItem>> GetQuestionByQuestionId(int id)
+    {
+        return await DbContextHelper.ExecuteAsync<QuestionItem>(async () =>
+            {
+                return await _coSurveyContext
+                .Questions
+                .Where(w => w.QuestionId == id)
+                .Include(i => i.QuestionAnswers)
+                .Select(s => SurveyServices_Mappers.Create(s))
+                .FirstOrDefaultAsync();
+            });
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public async Task<BaseResponseCollection<QuestionItem>> GetQuestionCollection()
+    {
+        return await DbContextHelper.ExecuteCollectionAsync<QuestionItem>(async () =>
+        {
+            return await _coSurveyContext
+            .VwQuestionLibraries
+            .Select(s => SurveyServices_Mappers.Create(s))
+            .ToListAsync();
+        });
+    }
+
+    /// <summary>
     /// Get Survey By SurveyId
     /// </summary>
     /// <param name="surveyId"></param>
@@ -170,10 +201,12 @@ public class SurveyService(InquirySparkContext coSurveyContext, ILogger<SurveySe
     {
         return await DbContextHelper.ExecuteCollectionAsync<SurveyItem>(async () =>
         {
-            return await _coSurveyContext
+            var list = await _coSurveyContext
             .Surveys
             .Select(s => SurveyServices_Mappers.Create(s))
             .ToListAsync();
+
+            return list;
         });
     }
 
@@ -283,4 +316,7 @@ public class SurveyService(InquirySparkContext coSurveyContext, ILogger<SurveySe
     {
         throw new NotImplementedException();
     }
+
+    private readonly InquirySparkContext _coSurveyContext = coSurveyContext;
+    private readonly ILogger<SurveyService> _logger = logger;
 }
