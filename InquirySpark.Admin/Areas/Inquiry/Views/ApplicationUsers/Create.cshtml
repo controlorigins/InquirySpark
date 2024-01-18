@@ -1,0 +1,82 @@
+﻿@model InquirySpark.Repository.Database.ApplicationUser
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ApplicationUser</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstNm" class="control-label"></label>
+                <input asp-for="FirstNm" class="form-control" />
+                <span asp-validation-for="FirstNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastNm" class="control-label"></label>
+                <input asp-for="LastNm" class="form-control" />
+                <span asp-validation-for="LastNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EMailAddress" class="control-label"></label>
+                <input asp-for="EMailAddress" class="form-control" />
+                <span asp-validation-for="EMailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommentDs" class="control-label"></label>
+                <input asp-for="CommentDs" class="form-control" />
+                <span asp-validation-for="CommentDs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountNm" class="control-label"></label>
+                <input asp-for="AccountNm" class="form-control" />
+                <span asp-validation-for="AccountNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupervisorAccountNm" class="control-label"></label>
+                <input asp-for="SupervisorAccountNm" class="form-control" />
+                <span asp-validation-for="SupervisorAccountNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastLoginDt" class="control-label"></label>
+                <input asp-for="LastLoginDt" class="form-control" />
+                <span asp-validation-for="LastLoginDt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastLoginLocation" class="control-label"></label>
+                <input asp-for="LastLoginLocation" class="form-control" />
+                <span asp-validation-for="LastLoginLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserKey" class="control-label"></label>
+                <input asp-for="UserKey" class="form-control" />
+                <span asp-validation-for="UserKey" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="EmailVerified" /> @Html.DisplayNameFor(model => model.EmailVerified)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyId" class="control-label"></label>
+                <select asp-for="CompanyId" class ="form-control" asp-items="ViewBag.CompanyId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

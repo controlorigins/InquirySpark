@@ -1,0 +1,107 @@
+﻿@model IEnumerable<InquirySpark.Repository.Database.QuestionGroup>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionGroupShortNm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionGroupNm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionGroupDs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionGroupWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupHeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupFooter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DependentQuestionGroupId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DependentMinScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DependentMaxScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Survey)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionGroupShortNm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionGroupNm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionGroupDs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionGroupWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupHeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupFooter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DependentQuestionGroupId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DependentMinScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DependentMaxScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Survey.CompletionMessage)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.QuestionGroupId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.QuestionGroupId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.QuestionGroupId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

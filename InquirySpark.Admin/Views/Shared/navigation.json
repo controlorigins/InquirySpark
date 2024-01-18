@@ -1,0 +1,130 @@
+﻿{
+  "menuItems": [
+    {
+      "text": "Applications",
+      "url": "/Inquiry/Applications",
+      "children": [
+        {
+          "text": "Applications",
+          "url": "/Inquiry/Applications"
+        },
+        {
+          "text": "Application Properties",
+          "url": "/Inquiry/AppProperties"
+        },
+        {
+          "text": "Application Users",
+          "url": "/Inquiry/ApplicationUsers"
+        },
+        {
+          "text": "Application User Roles",
+          "url": "/Inquiry/ApplicationUserRoles"
+        },
+        {
+          "text": "Application Surveys",
+          "url": "/Inquiry/ApplicationSurveys"
+        }
+      ]
+    },
+    {
+      "text": "Companies",
+      "url": "/Inquiry/Companies",
+      "children": [
+        {
+          "text": "Companies",
+          "url": "/Inquiry/Companies"
+        },
+        {
+          "text": "SiteAppMenus",
+          "url": "/Inquiry/SiteAppMenus"
+        },
+        {
+          "text": "SiteRoles",
+          "url": "/Inquiry/SiteRoles"
+        },
+        {
+          "text": "Chart Settings",
+          "url": "/Inquiry/ChartSettings"
+        }
+      ]
+    },
+    {
+      "text": "Surveys",
+      "url": "/Inquiry/Surveys",
+      "children": [
+        {
+          "text": "Surveys",
+          "url": "/Inquiry/Surveys"
+        },
+        {
+          "text": "Survey Email Templates",
+          "url": "/Inquiry/SurveyEmailTemplates"
+        },
+        {
+          "text": "Survey Status",
+          "url": "/Inquiry/Survey Status"
+        },
+        {
+          "text": "Survey Review Status",
+          "url": "/Inquiry/SurveyReviewStatus"
+        },
+        {
+          "text": "Question Groups",
+          "url": "/Inquiry/QuestionGroups"
+        },
+        {
+          "text": "Question Group Members",
+          "url": "/Inquiry/QuestionGroupMembers"
+        }
+      ]
+    },
+    {
+      "text": "Questions",
+      "url": "/Inquiry/Questions",
+      "children": [
+        {
+          "text": "Questions",
+          "url": "/Inquiry/Questions"
+        },
+        {
+          "text": "Question Answers",
+          "url": "/Inquiry/QuestionAnswers"
+        }
+      ]
+    },
+    {
+      "text": "Lookups",
+      "url": "/Inquiry/Lookups",
+      "children": [
+        {
+          "text": "Application Types",
+          "url": "/Inquiry/LuApplicationTypes"
+        },
+        {
+          "text": "Question Types",
+          "url": "/Inquiry/LuQuestionTypes"
+        },
+        {
+          "text": "Review Status",
+          "url": "/Inquiry/LuReviewStatus"
+        },
+        {
+          "text": "Survey Response Status",
+          "url": "/Inquiry/LuSurveyResponseStatus"
+        },
+        {
+          "text": "Survey Types",
+          "url": "/Inquiry/LuSurveyTypes"
+        },
+        {
+          "text": "Unit of Measure",
+          "url": "/Inquiry/LuUnitOfMeasures"
+        },
+        {
+          "text": "Roles",
+          "url": "/Inquiry/Roles"
+        }
+      ]
+    }
+  ]
+}

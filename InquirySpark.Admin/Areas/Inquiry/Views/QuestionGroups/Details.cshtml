@@ -1,0 +1,96 @@
+﻿@model InquirySpark.Repository.Database.QuestionGroup
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>QuestionGroup</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GroupOrder)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GroupOrder)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.QuestionGroupShortNm)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.QuestionGroupShortNm)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.QuestionGroupNm)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.QuestionGroupNm)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.QuestionGroupDs)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.QuestionGroupDs)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.QuestionGroupWeight)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.QuestionGroupWeight)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GroupHeader)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GroupHeader)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GroupFooter)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GroupFooter)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ModifiedId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ModifiedId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ModifiedDt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ModifiedDt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DependentQuestionGroupId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DependentQuestionGroupId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DependentMinScore)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DependentMinScore)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DependentMaxScore)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DependentMaxScore)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Survey)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Survey.CompletionMessage)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.QuestionGroupId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

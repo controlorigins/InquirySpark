@@ -1,0 +1,94 @@
+﻿@model InquirySpark.Repository.Database.SurveyEmailTemplate
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>SurveyEmailTemplate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SurveyEmailTemplateId" />
+            <div class="form-group">
+                <label asp-for="SurveyEmailTemplateNm" class="control-label"></label>
+                <input asp-for="SurveyEmailTemplateNm" class="form-control" />
+                <span asp-validation-for="SurveyEmailTemplateNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SurveyId" class="control-label"></label>
+                <select asp-for="SurveyId" class="form-control" asp-items="ViewBag.SurveyId"></select>
+                <span asp-validation-for="SurveyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusId" class="control-label"></label>
+                <input asp-for="StatusId" class="form-control" />
+                <span asp-validation-for="StatusId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubjectTemplate" class="control-label"></label>
+                <input asp-for="SubjectTemplate" class="form-control" />
+                <span asp-validation-for="SubjectTemplate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailTemplate" class="control-label"></label>
+                <input asp-for="EmailTemplate" class="form-control" />
+                <span asp-validation-for="EmailTemplate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FromEmailAddress" class="control-label"></label>
+                <input asp-for="FromEmailAddress" class="form-control" />
+                <span asp-validation-for="FromEmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FilterCriteria" class="control-label"></label>
+                <input asp-for="FilterCriteria" class="form-control" />
+                <span asp-validation-for="FilterCriteria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDt" class="control-label"></label>
+                <input asp-for="StartDt" class="form-control" />
+                <span asp-validation-for="StartDt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDt" class="control-label"></label>
+                <input asp-for="EndDt" class="form-control" />
+                <span asp-validation-for="EndDt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Active" class="control-label"></label>
+                <input asp-for="Active" class="form-control" />
+                <span asp-validation-for="Active" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="SendToSupervisor" /> @Html.DisplayNameFor(model => model.SendToSupervisor)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModifiedId" class="control-label"></label>
+                <input asp-for="ModifiedId" class="form-control" />
+                <span asp-validation-for="ModifiedId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModifiedDt" class="control-label"></label>
+                <input asp-for="ModifiedDt" class="form-control" />
+                <span asp-validation-for="ModifiedDt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,77 @@
+﻿@model InquirySpark.Repository.Database.QuestionGroup
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>QuestionGroup</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SurveyId" class="control-label"></label>
+                <select asp-for="SurveyId" class ="form-control" asp-items="ViewBag.SurveyId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupOrder" class="control-label"></label>
+                <input asp-for="GroupOrder" class="form-control" />
+                <span asp-validation-for="GroupOrder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionGroupShortNm" class="control-label"></label>
+                <input asp-for="QuestionGroupShortNm" class="form-control" />
+                <span asp-validation-for="QuestionGroupShortNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionGroupNm" class="control-label"></label>
+                <input asp-for="QuestionGroupNm" class="form-control" />
+                <span asp-validation-for="QuestionGroupNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionGroupDs" class="control-label"></label>
+                <input asp-for="QuestionGroupDs" class="form-control" />
+                <span asp-validation-for="QuestionGroupDs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupHeader" class="control-label"></label>
+                <input asp-for="GroupHeader" class="form-control" />
+                <span asp-validation-for="GroupHeader" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupFooter" class="control-label"></label>
+                <input asp-for="GroupFooter" class="form-control" />
+                <span asp-validation-for="GroupFooter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DependentQuestionGroupId" class="control-label"></label>
+                <input asp-for="DependentQuestionGroupId" class="form-control" />
+                <span asp-validation-for="DependentQuestionGroupId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DependentMinScore" class="control-label"></label>
+                <input asp-for="DependentMinScore" class="form-control" />
+                <span asp-validation-for="DependentMinScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DependentMaxScore" class="control-label"></label>
+                <input asp-for="DependentMaxScore" class="form-control" />
+                <span asp-validation-for="DependentMaxScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

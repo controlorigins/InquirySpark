@@ -1,0 +1,85 @@
+﻿@model InquirySpark.Repository.Database.Question
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Question</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SurveyTypeId" class="control-label"></label>
+                <select asp-for="SurveyTypeId" class ="form-control" asp-items="ViewBag.SurveyTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionShortNm" class="control-label"></label>
+                <input asp-for="QuestionShortNm" class="form-control" />
+                <span asp-validation-for="QuestionShortNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionNm" class="control-label"></label>
+                <input asp-for="QuestionNm" class="form-control" />
+                <span asp-validation-for="QuestionNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionDs" class="control-label"></label>
+                <input asp-for="QuestionDs" class="form-control" />
+                <span asp-validation-for="QuestionDs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Keywords" class="control-label"></label>
+                <input asp-for="Keywords" class="form-control" />
+                <span asp-validation-for="Keywords" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionSort" class="control-label"></label>
+                <input asp-for="QuestionSort" class="form-control" />
+                <span asp-validation-for="QuestionSort" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReviewRoleLevel" class="control-label"></label>
+                <input asp-for="ReviewRoleLevel" class="form-control" />
+                <span asp-validation-for="ReviewRoleLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionTypeId" class="control-label"></label>
+                <select asp-for="QuestionTypeId" class ="form-control" asp-items="ViewBag.QuestionTypeId"></select>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CommentFl" /> @Html.DisplayNameFor(model => model.CommentFl)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionValue" class="control-label"></label>
+                <input asp-for="QuestionValue" class="form-control" />
+                <span asp-validation-for="QuestionValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitOfMeasureId" class="control-label"></label>
+                <select asp-for="UnitOfMeasureId" class ="form-control" asp-items="ViewBag.UnitOfMeasureId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FileData" class="control-label"></label>
+                <input asp-for="FileData" class="form-control" />
+                <span asp-validation-for="FileData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

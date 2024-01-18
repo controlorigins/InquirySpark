@@ -1,0 +1,89 @@
+﻿@model IEnumerable<InquirySpark.Repository.Database.QuestionAnswer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionAnswerSort)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionAnswerShortNm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionAnswerNm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionAnswerValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionAnswerDs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CommentFl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActiveFl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Question)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionAnswerSort)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionAnswerShortNm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionAnswerNm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionAnswerValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionAnswerDs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentFl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActiveFl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question.QuestionDs)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.QuestionAnswerId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.QuestionAnswerId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.QuestionAnswerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

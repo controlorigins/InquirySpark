@@ -1,0 +1,107 @@
+﻿@model IEnumerable<InquirySpark.Repository.Database.SurveyEmailTemplate>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SurveyEmailTemplateNm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectTemplate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailTemplate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromEmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FilterCriteria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SendToSupervisor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Survey)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurveyEmailTemplateNm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectTemplate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailTemplate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromEmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilterCriteria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SendToSupervisor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Survey.CompletionMessage)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SurveyEmailTemplateId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SurveyEmailTemplateId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SurveyEmailTemplateId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

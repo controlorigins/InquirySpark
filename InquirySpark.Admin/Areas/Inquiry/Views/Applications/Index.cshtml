@@ -1,0 +1,82 @@
+﻿@model IEnumerable<InquirySpark.Repository.Database.Application>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-action="Create">Create New  Application </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationNm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationCd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationShortNm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationDs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MenuOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationFolder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DefaultPageId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                  @Html.DisplayFor(modelItem => item.ApplicationNm)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.ApplicationCd)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.ApplicationShortNm)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.ApplicationDs)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.MenuOrder)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.ApplicationFolder)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.DefaultPageId)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationType.ApplicationTypeNm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company.Address1)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ApplicationId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ApplicationId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ApplicationId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<InquirySpark.Repository.Database.LuSurveyResponseStatus>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusNm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusDs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailTemplate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreviousStatusId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NextStatusId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusNm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusDs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailTemplate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreviousStatusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NextStatusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDt)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StatusId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StatusId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StatusId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

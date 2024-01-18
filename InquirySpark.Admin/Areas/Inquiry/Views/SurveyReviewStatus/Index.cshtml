@@ -1,0 +1,77 @@
+﻿@model IEnumerable<InquirySpark.Repository.Database.SurveyReviewStatus>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReviewStatusId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReviewStatusNm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReviewStatusDs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApprovedFl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CommentFl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Survey)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewStatusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewStatusNm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewStatusDs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprovedFl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentFl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Survey.CompletionMessage)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SurveyReviewStatusId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SurveyReviewStatusId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SurveyReviewStatusId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

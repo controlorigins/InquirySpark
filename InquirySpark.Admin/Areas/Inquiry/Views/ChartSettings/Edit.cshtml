@@ -1,0 +1,69 @@
+﻿@model InquirySpark.Repository.Database.ChartSetting
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ChartSetting</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="SiteUserId" class="control-label"></label>
+                <input asp-for="SiteUserId" class="form-control" />
+                <span asp-validation-for="SiteUserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SiteAppId" class="control-label"></label>
+                <input asp-for="SiteAppId" class="form-control" />
+                <span asp-validation-for="SiteAppId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SettingType" class="control-label"></label>
+                <input asp-for="SettingType" class="form-control" />
+                <span asp-validation-for="SettingType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SettingName" class="control-label"></label>
+                <input asp-for="SettingName" class="form-control" />
+                <span asp-validation-for="SettingName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SettingValue" class="control-label"></label>
+                <input asp-for="SettingValue" class="form-control" />
+                <span asp-validation-for="SettingValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SettingValueEnhanced" class="control-label"></label>
+                <input asp-for="SettingValueEnhanced" class="form-control" />
+                <span asp-validation-for="SettingValueEnhanced" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateCreated" class="control-label"></label>
+                <input asp-for="DateCreated" class="form-control" />
+                <span asp-validation-for="DateCreated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastUpdated" class="control-label"></label>
+                <input asp-for="LastUpdated" class="form-control" />
+                <span asp-validation-for="LastUpdated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

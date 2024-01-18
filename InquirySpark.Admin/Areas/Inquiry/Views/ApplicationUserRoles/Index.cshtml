@@ -1,0 +1,95 @@
+﻿@model IEnumerable<InquirySpark.Repository.Database.ApplicationUserRole>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDemo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartUpDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsMonthlyPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserInRolled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsUserAdmin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDemo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartUpDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsMonthlyPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserInRolled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsUserAdmin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Application.ApplicationCd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.AccountNm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role.RoleCd)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ApplicationUserRoleId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ApplicationUserRoleId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ApplicationUserRoleId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,84 @@
+﻿@model InquirySpark.Repository.Database.Application
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Application</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ApplicationId" />
+            <div class="form-group">
+                <label asp-for="ApplicationNm" class="control-label"></label>
+                <input asp-for="ApplicationNm" class="form-control" />
+                <span asp-validation-for="ApplicationNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationCd" class="control-label"></label>
+                <input asp-for="ApplicationCd" class="form-control" />
+                <span asp-validation-for="ApplicationCd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationShortNm" class="control-label"></label>
+                <input asp-for="ApplicationShortNm" class="form-control" />
+                <span asp-validation-for="ApplicationShortNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationTypeId" class="control-label"></label>
+                <select asp-for="ApplicationTypeId" class="form-control" asp-items="ViewBag.ApplicationTypeId"></select>
+                <span asp-validation-for="ApplicationTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationDs" class="control-label"></label>
+                <input asp-for="ApplicationDs" class="form-control" />
+                <span asp-validation-for="ApplicationDs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MenuOrder" class="control-label"></label>
+                <input asp-for="MenuOrder" class="form-control" />
+                <span asp-validation-for="MenuOrder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationFolder" class="control-label"></label>
+                <input asp-for="ApplicationFolder" class="form-control" />
+                <span asp-validation-for="ApplicationFolder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DefaultPageId" class="control-label"></label>
+                <input asp-for="DefaultPageId" class="form-control" />
+                <span asp-validation-for="DefaultPageId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyId" class="control-label"></label>
+                <select asp-for="CompanyId" class="form-control" asp-items="ViewBag.CompanyId"></select>
+                <span asp-validation-for="CompanyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModifiedId" class="control-label"></label>
+                <input asp-for="ModifiedId" class="form-control" />
+                <span asp-validation-for="ModifiedId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModifiedDt" class="control-label"></label>
+                <input asp-for="ModifiedDt" class="form-control" />
+                <span asp-validation-for="ModifiedDt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

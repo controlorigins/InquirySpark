@@ -1,0 +1,65 @@
+﻿@model IEnumerable<InquirySpark.Repository.Database.ImportHistory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImportType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfRows)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImportLog)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImportType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfRows)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImportLog)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDt)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ImportHistoryId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ImportHistoryId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ImportHistoryId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

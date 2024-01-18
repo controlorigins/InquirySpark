@@ -1,0 +1,63 @@
+﻿@model InquirySpark.Repository.Database.LuSurveyType
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>LuSurveyType</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SurveyTypeShortNm" class="control-label"></label>
+                <input asp-for="SurveyTypeShortNm" class="form-control" />
+                <span asp-validation-for="SurveyTypeShortNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SurveyTypeNm" class="control-label"></label>
+                <input asp-for="SurveyTypeNm" class="form-control" />
+                <span asp-validation-for="SurveyTypeNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SurveyTypeDs" class="control-label"></label>
+                <input asp-for="SurveyTypeDs" class="form-control" />
+                <span asp-validation-for="SurveyTypeDs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SurveyTypeComment" class="control-label"></label>
+                <input asp-for="SurveyTypeComment" class="form-control" />
+                <span asp-validation-for="SurveyTypeComment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationTypeId" class="control-label"></label>
+                <input asp-for="ApplicationTypeId" class="form-control" />
+                <span asp-validation-for="ApplicationTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParentSurveyTypeId" class="control-label"></label>
+                <input asp-for="ParentSurveyTypeId" class="form-control" />
+                <span asp-validation-for="ParentSurveyTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="MutiSequenceFl" /> @Html.DisplayNameFor(model => model.MutiSequenceFl)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

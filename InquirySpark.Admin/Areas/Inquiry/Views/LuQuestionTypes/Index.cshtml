@@ -1,0 +1,65 @@
+﻿@model IEnumerable<InquirySpark.Repository.Database.LuQuestionType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionTypeCd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionTypeDs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ControlName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnswerDataType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionTypeCd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionTypeDs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ControlName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnswerDataType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDt)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.QuestionTypeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.QuestionTypeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.QuestionTypeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

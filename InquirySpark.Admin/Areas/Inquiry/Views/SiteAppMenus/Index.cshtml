@@ -1,0 +1,71 @@
+﻿@model IEnumerable<InquirySpark.Repository.Database.SiteAppMenu>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MenuText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TartgetPage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GlyphName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MenuOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteRoleId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ViewInMenu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteApp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MenuText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TartgetPage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GlyphName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MenuOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteRoleId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ViewInMenu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteApp.ApplicationCd)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

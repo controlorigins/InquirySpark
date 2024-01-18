@@ -1,0 +1,70 @@
+﻿@model InquirySpark.Repository.Database.ApplicationUserRole
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ApplicationUserRole</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ApplicationId" class="control-label"></label>
+                <select asp-for="ApplicationId" class ="form-control" asp-items="ViewBag.ApplicationId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationUserId" class="control-label"></label>
+                <select asp-for="ApplicationUserId" class ="form-control" asp-items="ViewBag.ApplicationUserId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoleId" class="control-label"></label>
+                <select asp-for="RoleId" class ="form-control" asp-items="ViewBag.RoleId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsDemo" class="control-label"></label>
+                <input asp-for="IsDemo" class="form-control" />
+                <span asp-validation-for="IsDemo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartUpDate" class="control-label"></label>
+                <input asp-for="StartUpDate" class="form-control" />
+                <span asp-validation-for="StartUpDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsMonthlyPrice" class="control-label"></label>
+                <input asp-for="IsMonthlyPrice" class="form-control" />
+                <span asp-validation-for="IsMonthlyPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserInRolled" class="control-label"></label>
+                <input asp-for="UserInRolled" class="form-control" />
+                <span asp-validation-for="UserInRolled" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsUserAdmin" class="control-label"></label>
+                <input asp-for="IsUserAdmin" class="form-control" />
+                <span asp-validation-for="IsUserAdmin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

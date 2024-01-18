@@ -1,0 +1,79 @@
+﻿@model InquirySpark.Repository.Database.QuestionAnswer
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>QuestionAnswer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="QuestionAnswerId" />
+            <div class="form-group">
+                <label asp-for="QuestionId" class="control-label"></label>
+                <select asp-for="QuestionId" class="form-control" asp-items="ViewBag.QuestionId"></select>
+                <span asp-validation-for="QuestionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionAnswerSort" class="control-label"></label>
+                <input asp-for="QuestionAnswerSort" class="form-control" />
+                <span asp-validation-for="QuestionAnswerSort" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionAnswerShortNm" class="control-label"></label>
+                <input asp-for="QuestionAnswerShortNm" class="form-control" />
+                <span asp-validation-for="QuestionAnswerShortNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionAnswerNm" class="control-label"></label>
+                <input asp-for="QuestionAnswerNm" class="form-control" />
+                <span asp-validation-for="QuestionAnswerNm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionAnswerValue" class="control-label"></label>
+                <input asp-for="QuestionAnswerValue" class="form-control" />
+                <span asp-validation-for="QuestionAnswerValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionAnswerDs" class="control-label"></label>
+                <input asp-for="QuestionAnswerDs" class="form-control" />
+                <span asp-validation-for="QuestionAnswerDs" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CommentFl" /> @Html.DisplayNameFor(model => model.CommentFl)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ActiveFl" /> @Html.DisplayNameFor(model => model.ActiveFl)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModifiedId" class="control-label"></label>
+                <input asp-for="ModifiedId" class="form-control" />
+                <span asp-validation-for="ModifiedId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModifiedDt" class="control-label"></label>
+                <input asp-for="ModifiedDt" class="form-control" />
+                <span asp-validation-for="ModifiedDt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,48 @@
+﻿@model InquirySpark.Repository.Database.LuQuestionType
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>LuQuestionType</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="QuestionTypeCd" class="control-label"></label>
+                <input asp-for="QuestionTypeCd" class="form-control" />
+                <span asp-validation-for="QuestionTypeCd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionTypeDs" class="control-label"></label>
+                <input asp-for="QuestionTypeDs" class="form-control" />
+                <span asp-validation-for="QuestionTypeDs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ControlName" class="control-label"></label>
+                <input asp-for="ControlName" class="form-control" />
+                <span asp-validation-for="ControlName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnswerDataType" class="control-label"></label>
+                <input asp-for="AnswerDataType" class="form-control" />
+                <span asp-validation-for="AnswerDataType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

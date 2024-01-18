@@ -1,0 +1,63 @@
+﻿@model InquirySpark.Repository.Database.SiteAppMenu
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SiteAppMenu</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MenuText)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MenuText)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TartgetPage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TartgetPage)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GlyphName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GlyphName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MenuOrder)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MenuOrder)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SiteRoleId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SiteRoleId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ViewInMenu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ViewInMenu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SiteApp)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SiteApp.ApplicationCd)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
