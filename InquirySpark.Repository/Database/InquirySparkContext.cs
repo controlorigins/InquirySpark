@@ -82,9 +82,7 @@ public partial class InquirySparkContext : DbContext
     public virtual DbSet<UserAppProperty> UserAppProperties { get; set; }
 
     public virtual DbSet<UserMessage> UserMessages { get; set; }
-
-    public virtual DbSet<VwAnadarkoApplicationUserValidate> VwAnadarkoApplicationUserValidates { get; set; }
-
+        
     public virtual DbSet<VwApplication> VwApplications { get; set; }
 
     public virtual DbSet<VwApplicationPermissison> VwApplicationPermissisons { get; set; }
@@ -233,7 +231,7 @@ public partial class InquirySparkContext : DbContext
             entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
             entity.Property(e => e.DisplayName)
                 .HasMaxLength(150)
-                .HasDefaultValueSql("('Display Name')");
+                .HasDefaultValueSql("('Display CompanyName')");
             entity.Property(e => e.EMailAddress)
                 .HasMaxLength(100)
                 .HasColumnName("eMailAddress");
@@ -348,7 +346,7 @@ public partial class InquirySparkContext : DbContext
             entity.Property(e => e.CompanyDs)
                 .HasMaxLength(255)
                 .HasColumnName("CompanyDS");
-            entity.Property(e => e.CompanyNm)
+            entity.Property(e => e.Name)
                 .HasMaxLength(50)
                 .HasColumnName("CompanyNM");
             entity.Property(e => e.Component).HasMaxLength(50);

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using InquirySpark.Repository.Database;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using InquirySpark.Repository.Database;
+using System;
+using System.Linq;
 
 namespace InquirySpark.Admin.Areas.Inquiry.Controllers
 {

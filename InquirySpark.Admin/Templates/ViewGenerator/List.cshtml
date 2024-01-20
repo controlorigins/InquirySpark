@@ -37,7 +37,7 @@
         //    PushIndent("    ");
     }
 @:<p>
-    @:<a asp-action="Create">Create New  @(((IModelMetadata)Model.ModelMetadata).ModelType.Name) </a>
+    @:<a asp-action="Create">Create New @Model.ViewDataTypeShortName </a>
 @:</p>
 @:<table class="table">
     @:<thead>

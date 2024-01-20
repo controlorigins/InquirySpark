@@ -47,9 +47,9 @@ namespace ControlSpark.WebMvc.Areas.Identity.Pages.Account.Manage
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Display(Name = "First Name")]
+            [Display(Name = "First CompanyName")]
             public string FirstName { get; set; }
-            [Display(Name = "Last Name")]
+            [Display(Name = "Last CompanyName")]
             public string LastName { get; set; }
             [Display(Name = "Username/Email")]
             public string Username { get; set; }

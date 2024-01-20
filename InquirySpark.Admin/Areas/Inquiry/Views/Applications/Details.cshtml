@@ -4,11 +4,8 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
 
 <div>
-    <h4>Application</h4>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.ApplicationNm)
@@ -51,18 +48,6 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DefaultPageId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ModifiedId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ModifiedId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ModifiedDt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ModifiedDt)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.ApplicationType)

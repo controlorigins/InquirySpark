@@ -6,13 +6,13 @@ namespace ControlSpark.WebMvc.Areas.Identity.Data;
 /// </summary>
 public class ControlSparkUser : IdentityUser
 {
-    
+
     /// <summary>
-    /// First Name of User
+    /// First CompanyName of User
     /// </summary>
     public string? FirstName { get; set; }
     /// <summary>
-    /// Last Name of User
+    /// Last CompanyName of User
     /// </summary>
     public string? LastName { get; set; }
     /// <summary>

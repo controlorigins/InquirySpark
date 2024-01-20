@@ -343,9 +343,9 @@ public static class SurveyServices_Mappers
         return new CompanyItem
         {
             CompanyID = item.CompanyId,
-            CompanyNM = item.CompanyNm,
+            CompanyNM = item.Name,
             CompanyCD = item.CompanyCd,
-            CompanyDS = item.CompanyDs ?? item.CompanyNm,
+            CompanyDS = item.CompanyDs ?? item.Name,
             Title = item.Title,
             SiteTheme = item.Theme,
             DefaultSiteTheme = item.DefaultTheme,
@@ -474,7 +474,7 @@ public static class SurveyServices_Mappers
             EMailAddress = s.EMailAddress,
             CommentDS = s.CommentDs ?? string.Empty,
             CompanyID = s.CompanyId ?? 0,
-            CompanyNM = s.Company?.CompanyNm ?? string.Empty,
+            CompanyNM = s.Company?.Name ?? string.Empty,
             SupervisorAccountNM = s.SupervisorAccountNm ?? string.Empty,
             LastLoginDT = s.LastLoginDt ?? DateTime.MinValue,
             LastLoginLocation = s.LastLoginLocation ?? string.Empty,

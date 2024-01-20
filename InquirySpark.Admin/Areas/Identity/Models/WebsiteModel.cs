@@ -64,10 +64,10 @@ public class WebsiteModel
     /// <value>The gallery folder.</value>
     [Required]
     [StringLength(20)]
-    [Display(Name = "Site Name")]
+    [Display(Name = "Site CompanyName")]
     public string SiteName { get; set; }
     /// <summary>
-    /// Name of the Style
+    /// CompanyName of the Style
     /// </summary>
     [Display(Name = "Site Style")]
     public string SiteStyle { get; set; }

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using InquirySpark.Repository.Database;
 using Microsoft.EntityFrameworkCore;
-using InquirySpark.Repository.Database;
+using System;
+using System.Linq;
 
 namespace InquirySpark.Admin.Areas.Inquiry.Controllers
 {
@@ -54,7 +50,7 @@ namespace InquirySpark.Admin.Areas.Inquiry.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CompanyId,CompanyNm,CompanyCd,CompanyDs,Title,Theme,DefaultTheme,GalleryFolder,SiteUrl,Address1,Address2,City,State,Country,PostalCode,FaxNumber,PhoneNumber,DefaultPaymentTerms,DefaultInvoiceDescription,ActiveFl,Component,FromEmail,Smtp,ModifiedDt,ModifiedId")] Company company)
+        public async Task<IActionResult> Create([Bind("CompanyId,CompanyName,CompanyCd,CompanyDs,Title,Theme,DefaultTheme,GalleryFolder,SiteUrl,Address1,Address2,City,State,Country,PostalCode,FaxNumber,PhoneNumber,DefaultPaymentTerms,DefaultInvoiceDescription,ActiveFl,Component,FromEmail,Smtp,ModifiedDt,ModifiedId")] Company company)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +82,7 @@ namespace InquirySpark.Admin.Areas.Inquiry.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CompanyId,CompanyNm,CompanyCd,CompanyDs,Title,Theme,DefaultTheme,GalleryFolder,SiteUrl,Address1,Address2,City,State,Country,PostalCode,FaxNumber,PhoneNumber,DefaultPaymentTerms,DefaultInvoiceDescription,ActiveFl,Component,FromEmail,Smtp,ModifiedDt,ModifiedId")] Company company)
+        public async Task<IActionResult> Edit(int id, [Bind("CompanyId,CompanyName,CompanyCd,CompanyDs,Title,Theme,DefaultTheme,GalleryFolder,SiteUrl,Address1,Address2,City,State,Country,PostalCode,FaxNumber,PhoneNumber,DefaultPaymentTerms,DefaultInvoiceDescription,ActiveFl,Component,FromEmail,Smtp,ModifiedDt,ModifiedId")] Company company)
         {
             if (id != company.CompanyId)
             {

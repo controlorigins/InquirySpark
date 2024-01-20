@@ -20,6 +20,7 @@
 	  <None Remove="CodeTemplates\**" />
 	</ItemGroup>
 	<ItemGroup>
+		<PackageReference Include="Azure.Identity" Version="1.10.4" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />

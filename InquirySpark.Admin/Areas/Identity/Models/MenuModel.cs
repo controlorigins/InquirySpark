@@ -86,7 +86,7 @@ public class MenuModel
     public int DomainID { get; set; }
 
     /// <summary>
-    /// Domain Name
+    /// Domain CompanyName
     /// </summary>
     [JsonPropertyName("domain_name")]
     public string DomainName { get; set; }

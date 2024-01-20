@@ -18,7 +18,6 @@
         }
 @:}
 @:
-@:<h1>@Model.ViewName</h1>
 @:
     }
     else
@@ -40,8 +39,6 @@
     }
 }
 <div>
-    <h4>@Model.ViewDataTypeShortName</h4>
-    <hr />
     <dl class="row">
 @{
     Dictionary<string, IPropertyMetadata> propertyLookup = ((IModelMetadata)Model.ModelMetadata).Properties.ToDictionary(x => x.PropertyName, x => x);
@@ -52,6 +49,9 @@
         if (propertyLookup.TryGetValue(item.Name, out IPropertyMetadata property)
             && property.Scaffold && !property.IsForeignKey && !property.IsPrimaryKey)
         {
+            if (property.PropertyName.StartsWith("Modified")) {continue;}
+
+
         <dt class = "col-sm-2">
             @@Html.DisplayNameFor(model => model.@GetValueExpression(property))
         </dt>
