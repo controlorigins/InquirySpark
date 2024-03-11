@@ -1127,7 +1127,7 @@ public partial class InquirySparkContext : DbContext
         modelBuilder.Entity<UserMessage>(entity =>
         {
             entity.Property(e => e.AppId).HasColumnName("AppID");
-            entity.Property(e => e.CratedDateTime).HasColumnType("datetime");
+            entity.Property(e => e.CreatedDateTime).HasColumnType("datetime");
             entity.Property(e => e.FromUserId).HasColumnName("FromUserID");
             entity.Property(e => e.Subject).HasMaxLength(50);
             entity.Property(e => e.ToUserId).HasColumnName("ToUserID");
@@ -1139,22 +1139,6 @@ public partial class InquirySparkContext : DbContext
             entity.HasOne(d => d.ToUser).WithMany(p => p.UserMessageToUsers)
                 .HasForeignKey(d => d.ToUserId)
                 .HasConstraintName("FK_UserMessages_TO_ApplicationUser");
-        });
-
-        modelBuilder.Entity<VwAnadarkoApplicationUserValidate>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("vwAnadarkoApplicationUserValidate");
-
-            entity.Property(e => e.ApplicationId).HasColumnName("ApplicationID");
-            entity.Property(e => e.ApplicationUserId).HasColumnName("ApplicationUserID");
-            entity.Property(e => e.ApplicationUserRoleId).HasColumnName("ApplicationUserRoleID");
-            entity.Property(e => e.RoleId).HasColumnName("RoleID");
-            entity.Property(e => e.RowAction)
-                .HasMaxLength(6)
-                .IsUnicode(false);
-            entity.Property(e => e.SupervisorApplicationUserId).HasColumnName("SupervisorApplicationUserID");
         });
 
         modelBuilder.Entity<VwApplication>(entity =>

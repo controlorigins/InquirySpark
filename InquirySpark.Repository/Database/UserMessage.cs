@@ -39,6 +39,7 @@ public partial class UserMessage
     /// Gets or sets the creation date and time of the message.
     /// </summary>
     [DisplayName("Created Date Time")]
+    [Column(name: "CratedDateTime")]
     public DateTime? CreatedDateTime { get; set; }
 
     /// <summary>
